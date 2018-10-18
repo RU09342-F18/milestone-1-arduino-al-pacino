@@ -83,7 +83,7 @@ __interrupt void USCI_A1_ISR(void)
             break;
 
     default:
-            if(byte >= total)
+            if(byte > total)
             {
                 byte = -1;
             }
