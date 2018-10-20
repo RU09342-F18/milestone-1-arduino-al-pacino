@@ -30,7 +30,7 @@ int main(void)
 
     for(;;){}; // Infinite for loop
 }
-`c
+`
 This portion of the code is responsible for calling the functions, disabling the watchdog timer, and enabling the global interrupt as well as putting the microcontroller into low power mode on the trigger of an interrupt.
 
 Moving on to the individual functions, Timer_Setup was the first function configured. This function setup timer A0 to use SMCLK and put the timer into Up mode using the line `TA0CTL = TASSEL_2 + MC_1 + ID_0 + TACLR`. The 3 capture compare registers, CCR1, CCR2, and CCR3 were set to use OUTMOD3, which is Set/Reset mode. This means that the value was set when the timer reached the value in the respective CCR register and reset when it reached the value in CCR0. The duty cycles were also taken care of in this function, with CCR0 being set to 256, which is the maximum duty cycle or brightness. CCR1, CCR2, and CCR3 were all set to 0 or OFF initially, with the registers being used for the duty cycles of the Red, Green, and Blue nodes respectively.
