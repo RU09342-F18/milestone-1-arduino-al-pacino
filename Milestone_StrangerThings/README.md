@@ -46,7 +46,7 @@ void LED_Setup(void)
     P1SEL |= BIT2 + BIT3 + BIT4;    // Enables primary peripheral function on P1.2, P1.3, and P1.4 (Timer/PWM)
 }
 ```
-The last function definition was the UART_Setup, which configured the UART communication to the LED. The UART TX and RX pins were set using the line `P4SEL |= BIT4 + BIT5`. The other configurations included resetting and intializing the state machine, selecting SMCLK for UART, enabling and clearing interrupt flags, and setting the Baud Rate to 9600. The Baud Rate was set by setting the UCA1BR0 register to 104 and the UCA1BR1 register to 0.
+The last function definition was the UART_Setup, which configured the UART communication to the LED. The UART TX and RX pins were set using the line `P4SEL |= BIT4 + BIT5`. The other configurations included resetting and intializing the state machine, selecting SMCLK for UART, enabling and clearing interrupt flags, and setting the BAUD Rate to 9600. The BAUD Rate was set by setting the UCA1BR0 register to 104 and the UCA1BR1 register to 0.
 
 The last portion of the Milestone1.c was the interrupt service routine for UART. This was configured using a switch statement with a series of cases. Case 0 sets the total byte integer to the value received, which is stored in the receive-data buffer. The following three cases (case 1, case 2, and case 3) set the duty cycles for the Red, Green, and Blue LEDs. This is done by taking the first three bytes in the initial package that was received. Case three also removes the three bytes that were used from the package. This ensures that the updated package gets passed along so that the next LED will display the correct color. This is accomplished in the following way:
 ```c
