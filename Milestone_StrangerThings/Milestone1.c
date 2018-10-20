@@ -53,8 +53,8 @@ void UART_Setup(void)
 
     UCA1CTL1 |= UCSWRST;    // Reset state machine
     UCA1CTL1 |= UCSSEL_2;   // Selects SMCLK for UART clock
-    UCA1BR0 = 104;          // Sets Baud Rate to 9600
-    UCA1BR1 = 0;            // Sets Baud Rate to 9600
+    UCA1BR0 = 104;          // Sets BAUD Rate to 9600
+    UCA1BR1 = 0;            // Sets BAUD Rate to 9600
     UCA1MCTL |= UCBRS_1 + UCBRF_0;  // Sets first and second stage modulation patterns
     UCA1CTL1 &= ~UCSWRST;   // Initialize USCI state machine
     UCA1IE |= UCRXIE;       // Enable USCI_A0 RX interrupt
