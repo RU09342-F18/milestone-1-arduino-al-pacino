@@ -1,6 +1,9 @@
 # Milestone 1: Communicating with Will Byers
 An addressable RGB LED was constructed which has the ability to produce various colors by alternating the duty cycle of the Red, Green, and Blue components. By changing the duty cycle (brightness) of each node, the 3 main colors could be mixed to produce a wide variety of others. Communication with the RGB LED was accomplished using the MSP430F5529 microcontroller along with its UART features. The LED built for this milestone possesses the ability to communicate with others using the RX and TX UART channels given that the Baud Rate (9600) was consistent across all of the componenets. The overall functionality of the LED inlcudes the ability to receive a package of bytes (any size), take the first three bytes to set the color of the LED, and then pass on the rest of the package so that the next LED can set its color.
 
+# Authors
+Nick Scamardi and Nick Setaro are the two contributors to this Milestone Project.
+
 # Dependencies
 The library dependency for the code behind the LEDs functionality is the standard `<msp430.h>` library.
 
